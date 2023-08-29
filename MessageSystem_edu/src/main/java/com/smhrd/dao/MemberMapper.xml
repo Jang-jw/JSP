@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.dao.MemberDAO">
+
+	<insert id="join" parameterType="com.smhrd.entity.Member">
+		insert into MSG_MEMBER values (
+		#{email},
+		#{pw},
+		#{tel},
+		#{address}
+		)
+	</insert>
+
+	<select id="login" parameterType="com.smhrd.entity.Member"
+		resultType="com.smhrd.entity.Member">
+		select * from MSG_MEMBER
+		where email = #{email}
+		and pw =
+		#{pw}
+	</select>
+
+	<update id="update" parameterType="com.smhrd.entity.Member">
+		update MSG_MEMBER set
+		pw =
+		#{pw},
+		tel = #{tel},
+		address = #{address}
+		where email = #{email}
+	</update>
+
+	<select id="check" resultType="com.smhrd.entity.Member">
+		select * from MSG_MEMBER
+		where
+		email = #{email}
+	</select>
+</mapper>
