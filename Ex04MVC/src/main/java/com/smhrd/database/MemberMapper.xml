@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.database.MemberDAO">
+<!-- Mapper 는 DAO 와 짝 : namespace 속성으로 짝궁 DAO 가 누군지 알려주어야한다. -->
+
+<!-- 
+	Mybatis
+	기존 jdbc : java 코드 + SQL 문이 String 타입
+		- 유지보수가 힘들고 복잡한 SQL 문을 사용하기 힘듦
+		- 실행결과를 가공하는 별도의 코드 추가되어 작업량이 많음
+	MyBatis : java 코드와 SQL 문을 분리
+		- DAO(java) <-mapping-> Mapper(SQL 문 정의) 
+ -->
+ 
+ <!-- 
+ 	Mapper : 태그 안에 SQL 문을 정의 / 태그 이름 == 사용하고자 하는 SQL 문의 키워드  
+ 	
+ 	#{필드변수명} : 해당하는 자리에 변수값을 집어넣어준다. 자료형 구분 자동 
+ 	
+ 	태그의 필수 속성들을 잘 정의해야함 
+ 	insert, delete, update : 
+ 		- id : 
+ 		- parameterType - 어떤 DTO 로 묶어서 데이터를 넣어주는지 
+  -->
+  <insert id="join" parameterType="com.smhrd.entity.Member">
+  	insert into MEMBER
+  	values(
+  		#{id},
+  		#{pw},
+  		#{gender},
+  		#{nick},
+  		#{tel}
+  		)
+  </insert>
+</mapper>

@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.smhrd</groupId>
+  <artifactId>Ex04MVC</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <!-- 
+  	XML : html 생각하면 됨 
+  		- 데이터를 태그와 속성, 콘텐츠를 이용해서 저장하는 문서 
+  		- 과일 => 이름 : 사과, 가격 : 500원 
+  		
+  		<fruit>
+			  <name>사과</name>
+			  <price>500원</price>
+		</fruit>
+		
+		데이터 가시성이 매우 좋음 >> 설정파일을 만들거나, API 에서 데이터를 제공할 때 자주 사용 
+		공공데이터 포털 >> 데이터 제공시 xml 양식으로 많이 제공 
+		
+	Dynamic web project >> Configure >> Convert to Maven Project
+	
+	기존 프로젝트 
+		: jar (외부 라이브러리) 사용 >> WEB-INF/lib 폴더에 집어넣어서 사용
+		- Build 및 배포에서 생김 
+		우리 프로젝트 >> 실행 가능한 압축 파일(build) >> 톰캣서버를 통해 실행(배포)
+		jar 파일 누락이나 잘못된 jar 를 가져오는 일이 발생하기 쉬워짐   
+	
+	Maven Project ☆☆☆☆☆
+		: Maven => 프로젝트 빌드 / 관리 도구 (gradle 등 여러가지가 있음) 
+			- pom.xml 파일에 어떻게 관리할지 어떤게 필요한지 기술 >> 자동으로 관리 
+			- 빌드 및 배포시에 유리 
+			- Spring Framwork 에서 많이 사용  
+	
+  -->
+  
+  <!-- 
+  	dependencies : 의존, 종속
+  	의존성 : 우리 프로젝트는 이 라이브러리가 없이 실행되지 않을 것이다. 
+  	
+  	dependencies : 우리가 필요한 라이브러리를 기술하는 태그 
+  		- 형식에 맞춰서 적기 >> maven 이 알아서 jsr 파일을 다운로드하고 적용 
+  -->
+  
+  <dependencies>
+	  
+<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<dependency>
+	<groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+	
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.28</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>11.2.0.4</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.5.8</version>
+</dependency>
+
+  </dependencies>
+  
+
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
