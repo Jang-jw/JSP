@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.dao.CalendarDAO">
+
+	<!-- 일정 추가 SQL -->
+	<insert id="calAdd" parameterType="com.smhrd.entity.Calendar">
+		insert into TB_CALENDAR(cal_seq, cal_title, started_at, ended_at, mb_id, cal_color, cal_content, cal_check)
+		values(tb_calendar_seq.nextval, #{cal_title}, #{started_at}, #{ended_at}, #{mb_id}, #{cal_color}, #{cal_content}, #{cal_check})		
+	</insert>
+	
+	<!-- 개별 일정 조회 SQL -->
+	<select id="calList" resultType="com.smhrd.entity.Calendar">
+		select * from TB_CALENDAR
+		where mb_id = #{mb_id}
+	</select>
+	
+	<!-- 일정 삭제 SQL -->
+	<delete id="calDel" parameterType="com.smhrd.entity.Calendar">
+		delete from tb_calendar
+		where cal_seq = #{cal_seq}
+	</delete>
+	
+	<!-- 일정 수정 SQL -->
+	<update id="calUp" parameterType="com.smhrd.entity.Calendar">
+		update tb_calendar
+		set cal_title=#{cal_title}, started_at=#{started_at}, ended_at=#{ended_at}, cal_color=#{cal_color}, cal_content=#{cal_content}
+		where cal_seq = #{cal_seq}
+	</update>
+	
+	<!-- 세션 생성을 위한 Select SQL -->
+	<select id="calSession" resultType="com.smhrd.entity.Calendar">
+		select * from tb_calendar
+		where cal_seq = #{cal_seq}
+	</select>
+
+
+</mapper>

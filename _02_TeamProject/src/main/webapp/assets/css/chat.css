@@ -1,0 +1,380 @@
+* {
+	box-sizing: border-box;
+}
+
+#chatImg {
+	position: absolute;
+}
+
+#preview-text {
+	display: none;
+	border: 1px solid black;
+	padding: 5px;
+}
+
+#overlay {
+	position: fixed;
+	right: 40px;
+	bottom: 54px;
+	width: 350px;
+	height: 600px;
+	background: #bacee0;
+	box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(13.5px);
+	-webkit-backdrop-filter: blur(13.5px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	margin: 0 auto;
+	font-size: 0;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+
+main {
+	display: inline-block;
+	font-size: 15px;
+	vertical-align: top;
+}
+
+aside div h3 {
+	margin-left: 40%;
+}
+
+aside div h4 {
+	margin-bottom: 87px;
+}
+
+aside header>* {
+	display: inline-block;
+	vertical-align: top;
+}
+
+aside ul {
+	padding-left: 0;
+	margin: 0;
+	list-style-type: none;
+	overflow-y: scroll;
+	/*많을 때 스크롤 표시*/
+	height: 690px;
+}
+
+aside li {
+	padding: 10px 0;
+}
+
+aside li:hover {
+	background-color: #ffffff;
+}
+
+h2, h3 {
+	margin: 0;
+}
+
+aside li img {
+	background-size: 100% 100%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	/* 탬플릿 이미지 자체 테두리가 있어서
+    다른 이미지를 넣게 되면 테두리 따로 설정해야함*/
+	border: 3px solid #bd9afa;
+	margin-left: 20px;
+	margin-right: 8px;
+}
+
+aside li div {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 16px;
+}
+
+aside li h2 {
+	font-size: 14px;
+	color: black;
+	font-weight: normal;
+	margin-bottom: 5px;
+}
+
+aside li h3 {
+	font-size: 12px;
+	color: #7e818a;
+	font-weight: normal;
+}
+
+aside header {
+	height: 10px;
+	padding: 10px 20px 30px 10px
+}
+
+aside header h2 {
+	position: fixed;
+	left: 5%;
+	top: 1%;
+	font-size: 21px;
+}
+
+main header {
+	height: 60px;
+	padding: 30px 20px 30px 40px;
+}
+
+#listback{
+	background-image: url("assets/img/backBtn.png");
+	/*background-size: 100% 100%;*/
+	/*background-color: #ffff;*/
+	position: fixed;
+	display: none;
+	right: 0px;
+	
+}
+
+
+
+input#back {
+	/* 뒤로가기 버튼 url 주소 바꿔서 이미지 수정가능 */
+	background:
+		url("data:image/jpeg;base64,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")
+		no-repeat;
+	/* size를 통해서 이미지 크기 조절 없으면 이미지가 커서 이상해짐*/
+	background-size: 100% 100%;
+	border: none;
+	position: fixed;
+	right: 40px;
+	top: 10px;
+	width: 35px;
+	height: 35px;
+}
+
+input#lclos {
+	/* 뒤로가기 버튼 url 주소 바꿔서 이미지 수정가능 */
+	background:
+		url("https://w7.pngwing.com/pngs/564/374/png-transparent-computer-icons-desktop-others-logo-button-icon-desktop-wallpaper-thumbnail.png");
+	/* size를 통해서 이미지 크기 조절 없으면 이미지가 커서 이상해짐*/
+	background-size: 100% 100%;
+	border: none;
+	position: fixed;
+	right: 10px;
+	top: 3px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+}
+
+/* 채팅창 닫기 버튼 */
+input#cclos {
+	background:
+		url("https://w7.pngwing.com/pngs/564/374/png-transparent-computer-icons-desktop-others-logo-button-icon-desktop-wallpaper-thumbnail.png");
+	background-size: 100% 100%;
+	border: none;
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	width: 35px;
+	height: 35px;
+}
+
+main header>* {
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+main header img:first-child {
+	
+}
+
+main header img:last-child {
+	width: 21px;
+	margin-top: 1px;
+}
+
+main header div {
+	margin-left: 10px;
+	margin-right: 145px;
+}
+
+main header h2 {
+	position: fixed;
+	left: 20%;
+	transform: translateX(-50%);
+	top: 3%;
+	font-size: 16px;
+}
+
+#cha_list {
+	padding-left: 0;
+	margin: 0;
+	list-style-type: none;
+	overflow-y: scroll;
+	height: 450px;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+}
+
+
+#chat {
+	padding-left: 0;
+	margin: 0;
+	list-style-type: none;
+	overflow-y: scroll;
+	height: 395px;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+}
+
+/* 챠팅 스크롤바 위치 보여주는곳인데 카카오톡은 없어서 백그라운드 지움 */
+#chat::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* 채팅 스크롤바에 대한 부분 같음 백그라운드 컬러쓰면 색상바뀜*/
+#chat::-webkit-scrollbar-thumb {
+	height: 30%;
+	background: #95a5b3;
+	border-radius: 10px;
+}
+
+#chat::-webkit-scrollbar-track {
+	
+}
+
+/* 친구목록 스크롤바 위치 보여주는곳인데 카카오톡은 없어서 백그라운드 지움 */
+#cha_list::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* 친구목록 스크롤바에 대한 부분 같음 백그라운드 컬러쓰면 색상바뀜*/
+#cha_list::-webkit-scrollbar-thumb {
+	height: 30%;
+	background: #95a5b3;
+	border-radius: 10px;
+}
+
+#chat li {
+	padding: 10px 30px;
+}
+
+#chat h2, #chat h3 {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: normal;
+}
+
+#chat h3 {
+	color: #bbb;
+}
+
+#chat .entete {
+	margin-bottom: 5px;
+}
+
+#chat .message {
+	padding: 10px;
+	color: black;
+	/*    line-height: 5px; 이거 쓰면 뭔가 이상해져서 주석처리함*/
+	max-width: 90%;
+	display: inline-block;
+	text-align: left;
+	border-radius: 5px;
+}
+
+#chat .you {
+	padding-left: 10px;
+}
+
+#chat .me {
+	padding-right: 10px;
+	text-align: right;
+}
+
+#chat .you .message {
+	background-color: white;
+}
+
+#chat .me .message {
+	background-color: #ffeb33;
+}
+
+#chat .triangle {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+}
+
+#chat .you .triangle {
+	border-color: transparent transparent white transparent;
+	margin-left: 15px;
+}
+
+#chat .me .triangle {
+	border-color: transparent transparent #ffb400 transparent;
+	margin-left: 375px;
+}
+
+main footer {
+	height: 160px;
+	padding: 10px 10px 10px 10px;
+}
+
+main footer textarea {
+	resize: none;
+	border: none;
+	display: block;
+	width: 100%;
+	height: 80px;
+	border-radius: 3px;
+	font-size: 13px;
+	margin-bottom: 10px;
+	padding: 5px 10px 5px 10px;
+}
+
+main footer textarea::placeholder {
+	color: #ddd;
+}
+
+main footer img {
+	height: 30px;
+	cursor: pointer;
+}
+
+main footer #send {
+	position: fixed;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #3f4756;
+	vertical-align: top;
+	display: inline-block;
+	right: 8px;
+	margin-top: 3px;
+}
+
+footer {
+	position: relative;
+}
+
+main footer .f_btn_r {
+	position: absolute;
+	margin-left: 230px;
+	margin-bottom: 5px;
+}
+
+/* 기존파일에는 위치가 달라서 id하나 만들어서 위치 조절함 */
+main footer #dis {
+	position: absolute;
+	margin-left: 10px;
+	margin-top: 4px;
+}
+
+main footer #share {
+	border: 1px solid #3f4756;
+	color: #3f4756;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+main footer #share:hover {
+	color: white;
+	background-color: #3f4756;
+}

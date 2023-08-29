@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.dao.ChatRoomDAO">
+
+	<!-- 생성된 방을 db에 저장 -->
+	<insert id="addRoom" parameterType="com.smhrd.entity.ChatRoom">
+		insert into tb_room(room_seq, room_id, room_title, created_at, room_limit, mb_id)
+		values(
+			test_room_seq.nextval,
+			#{room_id},
+			#{room_title},
+			#{created_at},
+			null,
+			#{mb_id}
+		)
+	</insert>
+	
+	<!-- 채팅방 리스트 조회 기능 -->
+	<select id="roomList" resultType="com.smhrd.entity.ChatRoom" parameterType="com.smhrd.entity.Member">
+		select * from tb_room
+		where mb_id = #{mb_id}
+	</select>
+	
+	<!-- 방 아이디 조회하기 -->
+	<select id="roomInfo" resultType="com.smhrd.entity.ChatRoom" parameterType="com.smhrd.entity.Member">
+		select * from tb_room
+		where mb_id = #{mb_id}
+	</select>
+	
+	<!-- 테이블이 인원추가 하기 -->
+	<insert id="addMember" parameterType="com.smhrd.entity.ChatRoom">
+		insert into tb_room(room_seq, room_id, room_title, created_at, room_limit, mb_id)
+		values(
+			test_room_seq.nextval,
+			#{room_id},
+			#{room_title},
+			null,
+			null,
+			#{mb_id}
+		)
+	</insert>
+
+</mapper>

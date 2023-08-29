@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.dao.TodoRrMapper">
+
+	<select id="todoRrSelect" resultType="com.smhrd.entity.TodoRr">
+		select * from TB_TODORR
+	</select>
+	
+	<update id="todoRandomModify" parameterType="com.smhrd.entity.TodoRr">
+		update TB_TODO set TODO_CONTENT = #{todorr_content}
+ 		where todo_seq = #{todorr_seq}
+   		and todo_id = #{todorr_id}
+	</update>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.dao.MemberDAO">
+
+	<insert id="join" parameterType="com.smhrd.entity.Member">
+		INSERT INTO TB_MEMBER
+		VALUES(
+		#{mb_id},
+		#{mb_pw},
+		#{mb_phone},
+		#{mb_nick},
+		sysdate
+		)
+	</insert>
+
+	<select id="login" parameterType="com.smhrd.entity.Member"
+		resultType="com.smhrd.entity.Member">
+		SELECT *
+		FROM TB_MEMBER
+		WHERE MB_ID = #{mb_id}
+		AND MB_PW = #{mb_pw}
+	</select>
+
+	<select id="checkId"
+		parameterType="com.smhrd.entity.Member"
+		resultType="com.smhrd.entity.Member">
+		SELECT NVL(COUNT(*),0)
+		  FROM TB_MEMBER
+		 WHERE ID=#{mb_id}
+	</select>
+	
+	<insert id="insert" parameterType="com.smhrd.entity.Member">
+		INSERT INTO TB_MEMBER
+		VALUES(
+		#{mb_id},
+		#{mb_pw},
+		#{mb_phone},
+		#{mb_nick},
+		sysdate
+		)
+	</insert>
+	
+	<select id="getMemberByEmail" parameterType="com.smhrd.entity.Member"
+            resultType="com.smhrd.entity.Member">
+        SELECT *
+        FROM TB_MEMBER
+        WHERE MB_ID = #{email}
+    </select>
+
+
+</mapper>
