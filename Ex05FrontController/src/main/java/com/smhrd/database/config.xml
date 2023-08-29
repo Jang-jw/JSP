@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- db.properties 파일의 값들을 가져와서 사용하겠다. -->
+	<!-- Class 가 아닌 일반파일 작성할 때, 폴더 방식으로 작성 -->
+	<properties resource="com/smhrd/database/db.properties"></properties>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+
+			<!-- 데이터베이스 연결에 필요한 정보들을 세팅하는 부분 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 우리가 사용하는 Mapper.xml 파일 위치 알려주기 1. Mapper.xml 생성 2. Mapper 태그를 추가해서 
+		xml 파일 경로를 알려주어야 한다. Mapper 파일을 만들때마다 추가해야한다. -->
+	<mappers>
+		<mapper resource="com/smhrd/dao/MemberMapper.xml" />
+	</mappers>
+</configuration>
