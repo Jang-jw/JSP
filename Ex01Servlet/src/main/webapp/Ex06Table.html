@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex06Table</title>
+</head>
+<body>
+	<!-- 
+		요청 메소드
+		
+		form 태그의 method 속성에 원하는 방식을 지정해서 사용
+		어떤 요청 방식을 사용하던, request.getParameter 로 수집 
+		
+		1. GET : 데이터를 URL 뒤에 "쿼리스트링" 형태로 붙여서 전송
+				- method="get" / 기본값이 GET 
+				- 주소창의 길이 제한이 존재해서 보낼 수 있는 
+				- 데이터에 한계가 있음 
+				- Encoding : Servers 프로젝트 >> server.xml 에서 수정
+							Connector 태그에 URIEncoding 속성을 추가하면된다. 
+				
+		- 쿼리스트링 
+		http://localhost:8081/Ex01Servlet/ex06 >> URL
+		?num=5 >> 쿼리스트링
+		? : URL 끝, 쿼리스트링 시작
+		name=value1&name2=value2 .....
+		& : 보내는 데이터가 늘어나면, & 기호를 이용해서 이어 붙인다. 
+		
+		2. POST : 패킷의 Body 에 데이터를 담아가는 방식 
+				- URL 에 노출되지 않음 >> GET 방식에 비해서 보안이 높음 
+				- 보낼 수 있는 데이터 용량에 한계 X 
+				- GET 보다 전송되는 속도가 느리다. 
+				- Encoding : 데이터를 꺼내기 직전에 request 객체를 인코딩시켜서
+				데이터를 인코딩한다. 
+	 -->
+	 
+	 <!-- a 태그를 이용해서 7 열짜리 테이블을 출력 -->
+	<a href="ex06?num=7">테이블 만들기</a>
+	
+	<form action="ex06" method="post">
+		<h1>몇 개의 방을 만들까요?</h1>
+		<input type="number" name="num">
+		<input type="submit" value="SEND">
+	</form>
+</body>
+</html>

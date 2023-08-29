@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex03Reponse</title>
+</head>
+<body>
+
+	<!-- 
+		데이터 전송을 위한 3요소 
+		
+		1. form 태그의 action 속성 
+			- 데이터를 가지고 어디로 요청을 보낼 것인가? 
+			- URL 이 들어감
+			
+		2. input 태그의 name 속성
+			- 데이터를 구분하기 위한 라벨
+			- 없는 경우에는 데이터를 꺼낼 수 없음 
+			
+		3. submit type 의 input 태그 or button 태그 
+			- 언제 요청을 보낼 것인가? 를 결정하기 위한 버튼 
+	 -->
+	 
+	<form action="ex04" method="post">
+		<!-- 
+			요청을 받을 준비가 필요 
+			>> 요청을 받았을 때 동작할 서버프로그램이 필요. 
+			
+			1. 우리 프로젝트 안으로 이동하는 경우
+				- http://localhost:8081/Ex01Servlet/ : root 경로 
+				- root 경로까지는 알고 있음, 자동으로 붙여줌 
+				- root 경로를 생략할 수 있음 >> URLMapping 만 적어도 된다!! 
+			
+			2. 우리 프로젝트나 컴퓨터 밖으로 이동하는 경우
+				- 프로토콜부터 시작해서 전체 URL 을 모두 적어주어야 함. 
+		 -->
+		 
+		<input type="text" name="data"><br>
+		
+		<input type="number" name="number"><br>
+		
+		<input type="submit" value="전송">
+		
+		<!-- button type 은 기본이 submit -->
+		<button>전송btn</button>
+	</form>
+</body>
+</html>
