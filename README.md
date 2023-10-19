@@ -34,6 +34,8 @@
 ### ![JSP_code_19](https://github.com/Jang-jw/JSP/assets/134268098/8b6cef6a-fffe-4fdd-a682-a246afa0b3eb)
 ### Main 
 ### ![image](https://github.com/Jang-jw/JSP/assets/134268098/227a28b4-80c1-41c2-ab89-533a63928e99)
+### Front Controller 
+### ![image](https://github.com/Jang-jw/JSP/assets/134268098/3f19a10b-f3a5-498a-a6b5-7b138cf938ad)
 ### JSP (ToDoList) 
 ### ![image](https://github.com/Jang-jw/JSP/assets/134268098/c9544372-637e-48be-92f2-2143ad04cf1d)
 ### JavaScript (UP) 
@@ -46,6 +48,10 @@
 ### ![image](https://github.com/Jang-jw/JSP/assets/134268098/d18f710c-4330-454d-8b35-4aad315ac4cf)
 ### Mapper.xml (ToDoList) 
 ### ![image](https://github.com/Jang-jw/JSP/assets/134268098/3d6cca12-a39a-48b2-902a-c8def8e0f5ff)
+### Oracle SQL Developer 
+### ![image](https://github.com/Jang-jw/JSP/assets/134268098/3053f93b-5da3-4c6c-a10e-d31505007360)
+
+
 
 
 
